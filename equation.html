@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Equation Solver</title>
+        <link rel="stylesheet" href="styleeqns.css">
+    </head>
+    <body>
+        <center>
+        <form name="comp">
+            <div id="enter">
+            Enter the equation in the form of <b>ax+b=c</b> <br><br>
+            </div>
+            <div id="input">
+            <input type="text" name="i"><br><br><br>
+            </div>
+            <div id="solve">
+            <input type="button" value="Solve" onclick="sol()"><br><br><br>
+            </div>
+            <div id="result">
+
+            </div>
+        </form>
+        </center>
+        <script>
+            function sol()
+            {
+                var i = document.comp.i.value
+                let result = i.match(/([+-]?\d*)\s?\*?x\s?([+-]?\d*)\s?=\s?([+-]?\d*)/)
+                const a = parseFloat(result[1])
+                const b = parseFloat(result[2])
+                const c = parseFloat(result[3])
+
+                var d = c-b
+                var e = d/a;
+
+                document.getElementById("result").innerHTML = "x = "+ e;
+
+            }
+        </script>
+        <a href="frontpage.html"><button id="a1">BACK</button></a>
+    </body>
+</html>

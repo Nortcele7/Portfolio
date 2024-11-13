@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        /* Add your CSS styling here */
+    </style>
+    <!-- Add Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <form name="comp">
+        <div class="main">
+            <center><div class="header">FILL ALL THE DETAILS</div></center>
+            <div class="details">
+                Name: <input type="text" name="name"><br>
+                Job: <input type="text" name="job"><br>
+                Income: <input type="text" name="income" class="income" required><br>
+                <button type="button" onclick="addInput('income')">Add More Income Sources</button>
+                <br>
+                Expenses:
+                <div id="expenseFields">
+                    Expense 1: <input type="text" name="expense[]" class="expense"><br>
+                </div>
+                <button type="button" onclick="addInput('expense')">Add More Expenses</button><br>
+                <button type="button" onclick="calculateAndShowChart()">Calculate and Show Pie Chart</button>
+            </div>
+            <!-- Display Chart -->
+            <div style="width: 400px; margin: 20px auto;">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        let expensePercentages = [];
+
+        function addInput(type) {
+            const container = document.getElementById(`${type}Fields`);
+            const newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.name = `${type}[]`;
+            newInput.placeholder = `Enter ${type} amount`;
+
+            // Add a line break after each new input
+            container.appendChild(newInput);
+            container.appendChild(document.createElement('br'));
+        }
+
+        function calculateAndShowChart() {
+            const incomes = document.querySelectorAll('.income');
+            const expenses = document.querySelectorAll('.expense');
+
+            const totalIncome = calculateTotal(incomes);
+            calculateExpensePercentages(expenses, totalIncome);
+
+            // Display Pie Chart
+            showPieChart(expensePercentages);
+        }
+
+        function calculateTotal(inputs) {
+            let total = 0;
+            inputs.forEach((input) => {
+                const value = parseFloat(input.value) || 0;
+                total += value;
+            });
+            return total;
+        }
+
+        function calculateExpensePercentages(expenses, totalIncome) {
+            expensePercentages = [];
+            expenses.forEach((input) => {
+                const expenseValue = parseFloat(input.value) || 0;
+                const percentage = (expenseValue / totalIncome) * 100;
+                expensePercentages.push(percentage);
+            });
+        }
+
+        function showPieChart(data) {
+            const ctx = document.getElementById('pieChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: Array.from({ length: data.length }, (_, i) => `Expense ${i + 1}`),
+                    datasets: [{
+                        data: data,
+                        backgroundColor: getRandomColors(data.length),
+                    }]
+                }
+            });
+        }
+
+        function getRandomColors(count) {
+            // Generate random colors
+            return Array.from({ length: count }, () => `#${Math.floor(Math.random()*16777215).toString(16)}`);
+        }
+    </script>
+</body>
+</html>

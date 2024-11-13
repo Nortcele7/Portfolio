@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url(euphoria.jpg);
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Makes the background image fixed while scrolling */
+    text-align: center; /* Center the content */
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+a {
+    position: relative;
+    display: inline-block;
+    font-size: 1.9em;
+    letter-spacing: .1em;
+    color: #5feefb;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid #0928b3;
+    padding: 10px 30px;
+    z-index: 1;
+    overflow: hidden;
+    transition: color 1s, box-shadow 1s;
+    margin-top: 10px;
+}
+
+a:hover {
+    transition-delay: 0s, 1s;
+    color: #fff;
+    box-shadow:
+        0 0 10px #0928b3,
+        0 0 20px #0928b3,
+        0 0 40px #0928b3,
+        0 0 80px #0928b3,
+        0 0 160px #0928b3;
+    border: 2px solid #ffffff;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background: #0928b3;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: 1s;
+}
+
+a:hover:before {
+    width: 100%;
+}
+
+#list {
+    position: relative;
+    display: inline-block;
+    font-size: 1.2em;
+    letter-spacing: .1em;
+    color: #ff0077;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid #ff0077;
+    padding: 10px 30px;
+    z-index: 1;
+    overflow: hidden;
+    transition: color 1s, box-shadow 1s;
+    margin-top: 10px;
+}
+
+#list:hover {
+    transition-delay: 0s, 1s;
+    color: #fff;
+    box-shadow:
+        0 0 10px #ff0077,
+        0 0 20px #ff0077,
+        0 0 40px #ff0077,
+        0 0 80px #ff0077,
+        0 0 160px #ff0077;
+        border: 2px solid #ffffff;
+}
+
+#list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 0;
+    height: 100%;
+    background: #ff0077;
+    transform: skewX(35deg);
+    z-index: -1;
+    transition: 1s;
+}
+
+#list:hover:before {
+    width: 100%;
+}
