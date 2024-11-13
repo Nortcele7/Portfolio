@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Three Eqns Solver</title>
+    <link rel="stylesheet" href="style3eqns.css">
+</head>
+
+<body>
+    <form name="comp">
+        <center>
+        <h1>THREE SIMULTANEOUS LINEAR EQNS SOLVER</h1>
+        <div id="eqns">
+        Eqn 1 <input type="text" name="aaa"><br>
+        Eqn 2 <input type="text" name="bbb"><br>
+        Eqn 3 <input type="text" name="ccc"><br><br>
+        </div>
+        <div id="solve">
+        <input type="button" value="Solve" onclick="solv(); audioplayer()"><br><br><br>
+        <audio id="audioplayer" src="interface-124464.mp3"></audio>
+        </div>
+        <div id="result"></div>
+        </center>
+    </form>
+    <script>
+
+
+        function audioplayer()
+        {
+            var audioplayer = document.getElementById("audioplayer")
+            {
+                if(audioplayer.paused)
+                {
+                    audioplayer.play()
+                }
+                else
+                {
+                    audioplayer.paused()
+                }
+            }   
+        }
+       
+
+        function solv() {
+
+            var aaa = document.comp.aaa.value;
+            var bbb = document.comp.bbb.value;
+            var ccc = document.comp.ccc.value;
+
+            const eqn1 = aaa.split(/x|y|z|=| /).filter(eqn1 => eqn1 !== '');
+            const eqn2 = bbb.split(/x|y|z|=| /).filter(eqn2 => eqn2 !== '');
+            const eqn3 = ccc.split(/x|y|z|=| /).filter(eqn3 => eqn3 !== '');
+            
+
+            // Extract coefficients and store them as constants
+            const x1 = parseFloat(eqn1[0]);
+            const y1 = parseFloat(eqn1[1]);
+            const z1 = parseFloat(eqn1[2]);
+            const c1 = parseFloat(eqn1[3]);
+            
+            const x2 = parseFloat(eqn2[0]);
+            const y2 = parseFloat(eqn2[1]);
+            const z2 = parseFloat(eqn2[2]);
+            const c2 = parseFloat(eqn2[3]);
+
+            const x3 = parseFloat(eqn3[0]);
+            const y3 = parseFloat(eqn3[1]);
+            const z3 = parseFloat(eqn3[2]);
+            const c3 = parseFloat(eqn3[3]);
+
+            var D = ((x1*((y2*z3)-(y3*z2))) - (y1*((x2*z3)-(x3 * z2))) + (z1*((x2*y3)-(x3*y2))) );
+            var D1 = ((c1*((y2*z3)-(y3*z2))) - (y1*((c2*z3)-(c3 * z2))) + (z1*((c2*y3)-(c3*y2))) );
+            var D2 = ((x1*((c2*z3)-(c3*z2))) - (c1*((x2*z3)-(x3 * z2))) + (z1*((x2*c3)-(x3*c2))) );
+            var D3 = ((x1*((y2*c3)-(y3*c2))) - (y1*((x2*c3)-(x3 * c2))) + (c1*((x2*y3)-(x3*y2))) );
+            
+
+                                        var x = D1 / D;
+                                        var y = D2 / D;
+                                        var z = D3 / D;
+
+
+            // Display the results
+            document.getElementById("result").innerHTML ="x = "+x+"<br>"+"y = "+y+"<br>"+"z= "+z+"<br>"
+        }
+    </script>
+
+    <a href="frontpage.html"><button id="a1" onclick="audioplayer()">BACK</button></a>
+
+</body>
+
+</html>

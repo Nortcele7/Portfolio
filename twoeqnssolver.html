@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>TWO SIMULTANEOUS LINEAR EQNS SOLVER</title>
+        <link rel="stylesheet" href="style2eqns.css">
+    </head>
+    <body>
+        <form name="comp">
+            <center>
+            <h1>TWO SIMULTANEOUS LINEAR EQNS SOLVER</h1>
+            <div id="eqns">
+            Eqn 1 <input type="text" name="aaa"><br>
+            Eqn 2 <input type="text" name="bbb"><br><br><br>
+            </div>
+            <div id="solve">
+            <input type="button" value="Solve" onclick="solve()"><br><br>
+            </div>
+            <div id="result">
+            </center>
+            </div>
+        </form>
+        <script>
+            function solve()
+            {
+                var aaa = document.comp.aaa.value
+                var bbb = document.comp.bbb.value
+
+                const eqn1 = aaa.split(/x|y|=| /).filter(eqn1 => eqn1 !== '')
+                const eqn2 = bbb.split(/x|y|=| /).filter(eqn2 => eqn2 !== '')
+
+                const x1 = parseFloat(eqn1[0])
+                const y1 = parseFloat(eqn1[1])
+                const c1 = parseFloat(eqn1[2])
+
+                const x2 = parseFloat(eqn2[0])
+                const y2 = parseFloat(eqn2[1])
+                const c2 = parseFloat(eqn2[2])
+
+                var D = ((x1*y2)-(x2*y1))
+                var D1 = ((c1*y2)-(c2*y1))
+                var D2 = ((x1*c2)-(x2*c1))
+
+                var x = D1/D
+                var y = D2/D
+
+                document.getElementById("result").innerHTML = "x = "+x+"<br>"+"y = "+y+"<br>"
+
+            }
+        </script>
+        <a href="frontpage.html"><button id="a1">BACK</button></a>
+    </body>
+</html>
