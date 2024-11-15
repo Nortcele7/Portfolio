@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ---------------------------------------------------------- Main css -------------------------------------------------------------*/
+
+body{
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background-color: black;
+}
+
+#title
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: #ffffff
+}
+
+/* ------------------------------------------------- for mobiles -------------------------------------------------------------------- */
+@media(max-width: 900px){
+    /* ------------------------- main book store ---------------------------- */
+    main{
+        margin-top: 1em;
+        font-family: 'Poppins', sans-serif;
+    }
+    .books{
+        display: flex;
+        flex-direction: row;
+        background-color: #E8D8BA;
+        border-radius: 10px;
+        margin-bottom: 3em;
+        box-shadow: #ffffff 0px 25px 50px -12px;
+    }
+    
+    .book-img{
+        width: 100%;
+        max-width: 600px;
+        margin: 1.5em;
+        border-radius: 3px;
+        transition: transform 1s;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    }
+    .book-img:hover{
+        transform: scale(1.05);
+    }
+    .descp{
+        margin: 1.5em;
+        padding: 1em;
+        
+    }
+    .book-name{
+        font-weight: bold;
+        padding-bottom: 0.2em;
+        font-size: 3em;
+        letter-spacing: 1px;
+        color: white;
+    }
+    .author{
+        padding-bottom: 0.5em;
+        font-size: 1.5em;
+        letter-spacing: 1px;
+        color: white;
+    }
+    .info{
+        font-size: 1em;
+        letter-spacing: 0.5px;
+        color: white;
+    }
+
+    .button
+    {
+        width: 150px;
+        height: 40px;
+        border-radius: 20px;
+        border: 2px solid #763e01;
+        background: none;
+        color: #763e01;
+        font-size: 20px;
+    }
+
+    .button:hover
+    {
+        color: white;
+    }
+    
+    
+    
+
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------- fOR PC AND LAPTOPS -------------------------------------------- */
+@media(min-width: 900px){
+
+    /* ------------------- MAIN BOOKS ---------------------------------- */
+    main{
+        margin-top: 1em;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .books{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        max-width: 900px;
+        justify-content: space-evenly;
+        background-color: #E8D8BA;
+        border-radius: 10px;
+        margin-bottom: 3em;
+        box-shadow: #ffffff 0px 25px 50px -12px;
+    }
+
+    .book-img{
+        width: 100%;
+        max-width: 500px;
+        border-radius: 3px;
+        transition: transform 1s;
+        margin: 1.5em;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    }
+    .book-img:hover{
+        transform: scale(1.05);
+    }
+    .descp{
+        margin: 1.5em;
+        padding: 1em;
+        
+    }
+    .book-name{
+        font-weight: bold;
+        padding-bottom: 0.5em;
+        font-size: 3em;
+        letter-spacing: 1px;
+        color: white;
+    }
+    .author{
+        padding-bottom: 0.5em;
+        font-size: 1.5em;
+        letter-spacing: 1px;
+        color: white;
+    }
+    .rating{
+        padding-bottom: 1.2em;
+        font-size: 1em;
+        letter-spacing: 1px;
+        color: white;
+    }
+    .info{
+        font-size: 1em;
+        letter-spacing: 1px;
+        color: white;
+    }
+
+    .button
+    {
+        width: 150px;
+        height: 40px;
+        border-radius: 20px;
+        border: 2px solid #763e01;
+        background: none;
+        color: #763e01;
+        font-size: 20px;
+    }
+
+    .button:hover
+    {
+        color: white;
+    }
+
+    
+
+}
